@@ -1,11 +1,24 @@
 :root {
-    --board-max-size: 600px; /* Set a max size for large screens */
+    --board-max-size: 600px;
     --grid-gap: 5px;
-    --red-color: rgb(230, 0, 0);     /* Player 1 - Red Diamond */
-    --green-color: rgb(0, 150, 0);    /* Player 2 - Green Circle */
+    
+    /* NEW: Dedicated Color Variables for Cities */
+    --GREEN: #048243; /* Similar to the Eritrean flag's green */
+    --RED: #E32938;   /* Similar to the Eritrean flag's red */
+    --YELLOW: #FCD116; /* Similar to the Eritrean flag's yellow */
+    --BLUE: #0077B6;
+    --ORANGE: #FF8800;
+    --PURPLE: #8A2BE2;
+    --CYAN: #00BCD4;
+
+    /* Dynamic Player Color Variables (Set by JavaScript) */
+    --player-1-color: var(--RED);
+    --player-2-color: var(--GREEN);
+
     --board-background: #ccc;
     --cell-background: #fff;
 }
+/* ... rest of the CSS ... */
 
 body {
     font-family: Arial, sans-serif;
@@ -84,26 +97,26 @@ h1 {
     background-color: #e0e0e0;
 }
 
-/* --- Piece Styles --- */
+  /* --- Piece Styles (Updated for Dynamic Colors and Circles) --- */
 
-.piece-1::before {
+.piece-1::before, .piece-2::before {
     content: '';
-    /* Scaled size, will shrink relative to the cell */
-    width: 70%; 
-    height: 70%;
-    background-color: var(--red-color);
-    transform: rotate(45deg); 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Added polish */
-}
-
-.piece-2::before {
-    content: '';
-    /* Scaled size, will shrink relative to the cell */
+    /* All pieces are now circles */
     width: 80%; 
     height: 80%;
     border-radius: 50%;
-    background-color: var(--green-color);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Added polish */
+    
+    /* Use the CSS variable set in JavaScript for the color */
+    background-color: var(--player-1-color); 
+    
+    /* Apply box shadow polish */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+}
+
+/* Override P2 to use its color variable */
+.piece-2::before {
+    background-color: var(--player-2-color);
+}
 }
 
 /* --- Status Area --- */
