@@ -7,20 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <body>
     <header>
-        <h1>ሰሌዳ - Tigrinya Strategy Grid</h1>
+        <h1>ትግርኛ ስትራተጂ ፍንትው (Tigrinya Strategy Grid)</h1>
     </header>
     
     <div id="game-container">
-        <div id="board"></div>
-    </div>
+        <div id="win-prize"></div> 
+        
+        <div id="board">
+            </div>
+        
+        <div id="status-area">
+            <div id="message"></div>
+            <div id="mode-selection"> 
+              <button id="vs-human-btn">👤 vs 👤 ኽልተ ተጻወትቲ</button>
+              <button id="vs-ai-btn">👤 vs 🤖 ኮምፒዩተር</button>
+        </div>
 
-    <div id="status-area">
-        <p id="message"></p>
-        <button id="undo-btn" style="display:none;">⏪ ንቕድሚት (Undo)</button> 
-        <button id="restart-btn" style="display:none;">ንኽጅምር ጸቕጥ! (Restart)</button>
+        <div id="game-controls" style="display: none;">
+            <button id="undo-btn">ሓሊፉ መመለስ (Undo)</button>
+            <button id="restart-btn">እንደገና ጀምር</button>
+        </div>
     </div>
 
     <script src="game.js"></script>
+</body>
 </body>
 </html>
